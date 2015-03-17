@@ -39,6 +39,7 @@ public class MainActivity extends Activity
         mInfo = (TextView)findViewById(R.id.info);
 
 
+//events = layoutā ir izveidots kā trīs kolonnas: laiks, lekcija, auditorija
         mEvents = (TextView)findViewById(R.id.events);
         Button btnShow = (Button) findViewById(R.id.btn_show);
         btnShow.setOnClickListener(new View.OnClickListener() {
@@ -154,8 +155,9 @@ public void addEvents(List<CalendarEvent> calendarEvents) {
                         CalendarEvent currentEvent = new CalendarEvent();
                         currentEvent.sLaiks = cursor.getLong(1);
                         currentEvent.bLaiks = cursor.getLong(2);
-                        ...
-                        //ielikt pārējos lielumus
+                        currentEvent.auditorija = cursor.getString(4);
+                        currentEvent.lekcija = cursor.getString(5);
+                        currentEvent.pasniedzejs = cursor.getString(6);
 
                         newEvents.add(currentEvent);
                     } while(cursor.moveToNext());
